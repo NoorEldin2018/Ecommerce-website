@@ -39,7 +39,6 @@ const Header = () => {
     const navigate = useNavigate();
     const {currentUser} = useAuth();
     const profileActionRef = useRef(null);
-    console.log(currentUser);
 
     const stickyHeader = () => {
         window.addEventListener('scroll', () => {
@@ -108,9 +107,9 @@ const Header = () => {
                             <span className="badge">{totalQuantity}</span>
                         </span>
                         <div className='profile'> 
-                            <motion.img onClick={toggleProfileActions} whileTap={{scale: 1.2}} src={currentUser ? currentUser.photoURL : user} alt={currentUser.displayName} />
+                            <motion.img onClick={toggleProfileActions} whileTap={{scale: 1.2}} src={currentUser ? currentUser.photoURL : user} alt="user-logo" />
                             <div className="profile__actions" onClick={toggleProfileActions} ref={profileActionRef}>
-                            <p>{currentUser.displayName}</p>
+                            {/* <p>{currentUser.displayName !== null ? currentUser.displayName : "User"}</p> */}
                                 {
                                     currentUser ? <span onClick={logout}>logout</span> : (
                                     <div className='d-flex align-items-center justify-content-center flex-column'>
